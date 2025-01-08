@@ -11,21 +11,33 @@ class CarSelectorScreen {
                 height / 2 - 50,
                 CarSelectorScreen.buttonWidth,
                 CarSelectorScreen.buttonHeight,
-                loadImage("favicon.png")
+                new Car(
+                    loadImage("assets/images/2.png"),
+                    loadImage("assets/images/2.png"),
+                    "Green"
+                )
             ),
             new CarChoiceButton(
                 width / 2 + 100,
                 height / 2 - 50,
                 CarSelectorScreen.buttonWidth,
                 CarSelectorScreen.buttonHeight,
-                loadImage("favicon.png")
+                new Car(
+                    loadImage("assets/images/2.png"),
+                    loadImage("assets/images/2.png"),
+                    "Blue"
+                )
             ),
             new CarChoiceButton(
                 width / 2 - 200,
                 height / 2 - 50,
                 CarSelectorScreen.buttonWidth,
                 CarSelectorScreen.buttonHeight,
-                loadImage("favicon.png")
+                new Car(
+                    loadImage("assets/images/2.png"),
+                    loadImage("assets/images/2.png"),
+                    "Red"
+                )
             ),
         ];
     }
