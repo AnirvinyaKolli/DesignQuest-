@@ -1,14 +1,14 @@
 class CarSelectorScreen {
-    static buttonHeight = 200;
-    static buttonWidth = 100;
+    static buttonHeight = 350;
+    static buttonWidth = 200;
     static possibleButtons = []; 
   
     static initializeButtons() {
         console.log(width+":"+height)
         CarSelectorScreen.possibleButtons = [
             new CarChoiceButton(
-                width / 2 - 50,
-                height / 2 - 50,
+                width / 2 - this.buttonWidth/2,
+                height / 2 - this.buttonHeight/2 -200,
                 CarSelectorScreen.buttonWidth,
                 CarSelectorScreen.buttonHeight,
                 new Car(
@@ -18,8 +18,8 @@ class CarSelectorScreen {
                 )
             ),
             new CarChoiceButton(
-                width / 2 + 100,
-                height / 2 - 50,
+                width / 2 + 200,
+                height / 2 - this.buttonHeight/2 -200,
                 CarSelectorScreen.buttonWidth,
                 CarSelectorScreen.buttonHeight,
                 new Car(
@@ -29,8 +29,8 @@ class CarSelectorScreen {
                 )
             ),
             new CarChoiceButton(
-                width / 2 - 200,
-                height / 2 - 50,
+                width / 2 - 400,
+                height / 2 - this.buttonHeight/2 -200,
                 CarSelectorScreen.buttonWidth,
                 CarSelectorScreen.buttonHeight,
                 new Car(
@@ -46,7 +46,6 @@ class CarSelectorScreen {
       background(220);
       CarSelectorScreen.possibleButtons.forEach(function (button) {
         button.drawButton();
-        
       });
     }
   }

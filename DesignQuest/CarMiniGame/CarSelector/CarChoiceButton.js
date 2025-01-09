@@ -5,6 +5,7 @@ class CarChoiceButton extends Button{
         this.margin = 20;
         this.chosen = false;
         this.car = car;
+        this.carSelectedButton = loadImage("assets/images/CarChoiceButtonSelected.png");
         this.buttonImage = loadImage("assets/images/CarChoiceButton.png");
         this.currentImage = this.buttonImage;
 
@@ -12,32 +13,30 @@ class CarChoiceButton extends Button{
     
     drawButton(){
         if(this.detectHover()){
-            fill(255);
-            rect(this.x-this.margin, this.y-this.margin, this.width+this.margin*2, this.height+this.margin*2);
-            image(this.buttonImage,this.x, this.y, this.width, this.height);
+            image(this.car.showCaseSprite,this.x-this.margin, this.y-this.margin, this.width+this.margin*2, this.height+this.margin*2);
+            image(this.currentImage,this.x-this.margin, this.y-this.margin, this.width+this.margin*2, this.height+this.margin*2);
         }else{
-            if(this.chosen){
-                fill(255, 0, 0);
-                rect(this.x-this.margin, this.y-this.margin, this.width+this.margin*2, this.height+this.margin*2);
-                image(this.currentImage,this.x, this.y, this.width, this.height);
-            }else{
-                image(this.currentImage,this.x, this.y, this.width, this.height);
-            }
+            image(this.car.showCaseSprite,this.x, this.y, this.width, this.height);
+            image(this.currentImage,this.x, this.y, this.width, this.height);
         }
         
+        this.handleSelection();
+    }
+
+    handleSelection(){
         if(this.chosen || !someCarSelected){
             if(this.detectClick()){
                 if(!this.chosen){
                     someCarSelected = true;
                     chosenCar = this.car; 
+                    this.currentImage = this.carSelectedButton;
                 }else{
                     someCarSelected = false;
                     chosenCar = undefined; 
+                    this.currentImage = this.buttonImage;
+
                 }
                 this.chosen = !this.chosen; 
-            }
-            if(chosenCar != undefined){
-                console.log(chosenCar.getName());
             }
         }
     }

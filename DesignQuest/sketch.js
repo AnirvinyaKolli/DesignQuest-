@@ -9,6 +9,6 @@ function draw() {
       CarSelectorScreen.drawScreen();
       break;
     case "HomeScreen":
-      break;
+      HomeScreen.drawScreen();
   }
 }
