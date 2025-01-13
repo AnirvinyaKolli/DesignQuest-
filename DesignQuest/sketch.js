@@ -1,6 +1,6 @@
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  CarSelectorScreen.initializeButtons();
+  CarSelectorScreen.initializeItems();
 }
 
 function draw() {

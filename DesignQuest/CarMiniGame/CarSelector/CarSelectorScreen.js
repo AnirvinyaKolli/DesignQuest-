@@ -3,7 +3,7 @@ class CarSelectorScreen {
     static buttonWidth = 200;
     static possibleButtons = []; 
   
-    static initializeButtons() {
+    static initializeItems() {
         console.log(width+":"+height)
         CarSelectorScreen.possibleButtons = [
             new CarChoiceButton(
