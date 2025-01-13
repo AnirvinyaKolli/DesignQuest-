@@ -27,7 +27,7 @@ class CarChoiceButton extends Button{
         if(this.chosen || !someCarSelected){
             if(this.detectClick()){
                 if(!this.chosen){
-                    someCarSelected = true;
+                    someCarSelected = true; 
                     chosenCar = this.car; 
                     this.currentImage = this.carSelectedButton;
                 }else{

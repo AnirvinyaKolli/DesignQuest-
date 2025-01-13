@@ -1,14 +1,13 @@
 function setup() {
+  frameRate(60);
   createCanvas(windowWidth, windowHeight);
-  CarSelectorScreen.initializeItems();
+  gameScreens.forEach((function (screen){
+    screen.initializeScreen();
+  }));
 }
 
 function draw() {
-  switch (gameStates){
-    case "CarSelector": 
-      CarSelectorScreen.drawScreen();
-      break;
-    case "HomeScreen":
-      HomeScreen.drawScreen();
-  }
+  gameState.drawScreen();
+  pointLossMessages.forEach(m => m.drawMessage()); 
+  pointLossMessages.filter(m => m.checkNeeded());
 }

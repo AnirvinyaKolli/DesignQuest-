@@ -1,10 +1,12 @@
-class CarSelectorScreen {
+class CarSelectorScreen extends Screen{
     static buttonHeight = 350;
     static buttonWidth = 200;
     static possibleButtons = []; 
+    static carInfoBox; 
   
-    static initializeItems() {
+    static initializeScreen() {
         console.log(width+":"+height)
+        CarSelectorScreen.carInfoBox = new CarInfoBox();
         CarSelectorScreen.possibleButtons = [
             new CarChoiceButton(
                 width / 2 - this.buttonWidth/2,
@@ -44,6 +46,9 @@ class CarSelectorScreen {
   
     static drawScreen() {
       background(220);
+      if(chosenCar){
+        CarSelectorScreen.carInfoBox.drawBox(chosenCar);
+      }
       CarSelectorScreen.possibleButtons.forEach(function (button) {
         button.drawButton();
       });
