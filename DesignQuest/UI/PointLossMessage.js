@@ -1,13 +1,17 @@
 class PointLossMessage {
     constructor(message, x, y) {
+
+        //Init values
         this.message = message;
-        this.x = x; 
-        this.y = y; 
-        this.alphaValue = 255; 
+        this.x = x;
+        this.y = y;
+        this.alphaValue = 255;
     }
 
     drawMessage() {
-        this.y -= 1; 
+
+        //Fading up and render 
+        this.y -= 1;
         this.alphaValue -= 1;
 
         textSize(25);

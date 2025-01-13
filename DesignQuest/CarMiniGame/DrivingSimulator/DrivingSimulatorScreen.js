@@ -1,11 +1,15 @@
-class DrivingSimulatorScreen extends Screen{
+class DrivingSimulatorScreen extends Screen {
+
+    //Inits screen values 
     static testTile;
     static roadManager;
     static speedometer;
     static speedLimit;
 
     static initializeScreen() {
-        highwayTiles = [ 
+
+        //Tile list 
+        highwayTiles = [
             new StopSignHighwayTile(),
             new HighwayTile(),
             new StopSignHighwayTile(),
@@ -27,17 +31,27 @@ class DrivingSimulatorScreen extends Screen{
             new HighwayTile(),
             new HighwayTile()
         ];
+
+        //set speed limit
         DrivingSimulatorScreen.speedLimit = new SpeedLimit();
+
+        //set speedometer
         DrivingSimulatorScreen.speedometer = new Speedometer();
+
+        //Set road manager
         DrivingSimulatorScreen.roadManager = new RoadManager(highwayTiles);
     }
-  
+
     static drawScreen() {
+
+        //Background
         background(255);
+
+        //rendering 
         DrivingSimulatorScreen.roadManager.drawTiles();
         DrivingSimulatorScreen.speedometer.drawSpeedometer();
         DrivingSimulatorScreen.speedLimit.drawSpeedlimitBox();
-        rect( width/2+30, height/2, 100,200);
+        rect(width / 2 + 30, height / 2, 100, 200);
     }
 
 } 

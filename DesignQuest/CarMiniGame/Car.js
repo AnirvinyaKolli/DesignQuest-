@@ -1,5 +1,5 @@
-class Car{
-    constructor(drivingSprite, showCaseSprite, name){
+class Car {
+    constructor(drivingSprite, showCaseSprite, name) {
         //Driving Section
         this.drivingSprite = drivingSprite;
 
@@ -7,7 +7,9 @@ class Car{
         this.showCaseSprite = showCaseSprite;
         this.name = name;
     }
-    getName(){
+    getName() {
+
+        //Return name
         return this.name;
     }
 }

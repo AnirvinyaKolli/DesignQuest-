@@ -1,14 +1,17 @@
-class StopSignHighwayTile extends HighwayTile{
-    constructor(){
+class StopSignHighwayTile extends HighwayTile {
+    constructor() {
         super(loadImage("assets/images/stopSignTile.jpeg"));
+
+        //Sets vars
         this.instruction = "Stop!";
-        this.hasStopped = false; 
+        this.hasStopped = false;
 
     }
 
-    checkTile(){
-        if(speed == 0){
-            console.log("WaterBottle");
+    checkTile() {
+
+        //Checks for speed
+        if (speed == 0) {
             this.hasStopped = true;
         }
     }
