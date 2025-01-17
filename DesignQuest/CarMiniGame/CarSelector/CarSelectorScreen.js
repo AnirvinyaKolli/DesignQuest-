@@ -1,5 +1,8 @@
 class CarSelectorScreen extends Screen {
 
+    //Next screen button
+    static nextButton;
+
     //Constraints for button
     static buttonHeight = 350;
     static buttonWidth = 200;
@@ -11,6 +14,8 @@ class CarSelectorScreen extends Screen {
     static carInfoBox;
 
     static initializeScreen() {
+        //Init next button
+        CarSelectorScreen.nextButton = new NextScreenButton(DrivingSimulatorScreen);
 
         //Init info box 
         CarSelectorScreen.carInfoBox = new CarInfoBox();
@@ -60,11 +65,18 @@ class CarSelectorScreen extends Screen {
         //Draws info box if car chosen 
         if (chosenCar) {
             CarSelectorScreen.carInfoBox.drawBox(chosenCar);
+            CarSelectorScreen.nextButton.canGoNext = true; 
+        }else{
+            CarSelectorScreen.nextButton.canGoNext = false; 
         }
 
         //Draws the list of buttons 
         CarSelectorScreen.possibleButtons.forEach(function (button) {
             button.drawButton();
         });
+
+        //Draws next button
+        CarSelectorScreen.nextButton.drawButton();
+        console.log(CarSelectorScreen.nextButton.canGoNext)
     }
 }

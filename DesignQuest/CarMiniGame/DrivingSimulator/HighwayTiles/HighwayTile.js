@@ -1,5 +1,5 @@
 class HighwayTile {
-    constructor(img = loadImage("assets/images/testTileTexture.jpeg")) {
+    constructor(img = loadImage("assets/images/carMiniGame/drivingGame/testTileTexture.jpeg")) {
 
         //Width of tile 
         this.tileWidth = 400;

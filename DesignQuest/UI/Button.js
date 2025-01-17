@@ -1,19 +1,20 @@
 class Button {
-    constructor(x, y, width, height) {
+    constructor(x, y, buttonWidth, buttonHeight, margin = 5) {
 
         //Init values 
         this.x = x;
         this.y = y;
-        this.width = width;
-        this.height = height;
+        this.buttonWidth = buttonWidth;
+        this.buttonHeight = buttonHeight;
         this.canClick = true;
         this.mouseWasPressed = false;
+        this.margin = margin;
     }
 
     detectHover() {
 
         //Check for mouse hovering 
-        if (mouseX > this.x && mouseX < this.x + this.width && mouseY > this.y && mouseY < this.y + this.height) {
+        if (mouseX > this.x && mouseX < this.x + this.buttonWidth && mouseY > this.y && mouseY < this.y + this.buttonHeight) {
             return true;
         } else {
             return false;
@@ -47,6 +48,6 @@ class Button {
     drawButton() {
 
         //Render (meant to be overriden)
-        rect(this.x, this.y, this.width, this.height);
+        rect(this.x, this.y, this.buttonWidth, this.buttonHeight);
     }
 }

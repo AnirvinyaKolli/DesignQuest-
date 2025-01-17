@@ -1,12 +1,9 @@
 class CarChoiceButton extends Button {
     constructor(x, y, width, height, car) {
-        super(x, y, width, height);
+        super(x, y, width, height,20);
 
         //Checks if cursor is hovering over
-        this.hovering = false;
-
-        //Margin for expansion
-        this.margin = 20;
+        this.hovering = false;        
 
         //Check wether some Car has chosen 
         this.chosen = false;
@@ -15,8 +12,8 @@ class CarChoiceButton extends Button {
         this.car = car;
 
         //Loads and set images 
-        this.carSelectedButton = loadImage("assets/images/CarChoiceButtonSelected.png");
-        this.buttonImage = loadImage("assets/images/CarChoiceButton.png");
+        this.carSelectedButton = loadImage("assets/images/carMiniGame/carSelector/CarChoiceButtonSelected.png");
+        this.buttonImage = loadImage("assets/images/carMiniGame/carSelector/CarChoiceButton.png");
         this.currentImage = this.buttonImage;
 
     }
@@ -26,14 +23,14 @@ class CarChoiceButton extends Button {
         if (this.detectHover()) {
 
             //Draws expanded button when hovering 
-            image(this.car.showCaseSprite, this.x - this.margin, this.y - this.margin, this.width + this.margin * 2, this.height + this.margin * 2);
-            image(this.currentImage, this.x - this.margin, this.y - this.margin, this.width + this.margin * 2, this.height + this.margin * 2);
+            image(this.car.showCaseSprite, this.x - this.margin, this.y - this.margin, this.buttonWidth + this.margin * 2, this.buttonHeight + this.margin * 2);
+            image(this.currentImage, this.x - this.margin, this.y - this.margin, this.buttonWidth + this.margin * 2, this.buttonHeight + this.margin * 2);
 
         } else {
 
             //Draws button when not hovering
-            image(this.car.showCaseSprite, this.x, this.y, this.width, this.height);
-            image(this.currentImage, this.x, this.y, this.width, this.height);
+            image(this.car.showCaseSprite, this.x, this.y, this.buttonWidth, this.buttonHeight);
+            image(this.currentImage, this.x, this.y, this.buttonWidth, this.buttonHeight);
 
         }
 

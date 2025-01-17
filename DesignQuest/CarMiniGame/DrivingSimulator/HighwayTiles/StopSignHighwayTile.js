@@ -1,6 +1,6 @@
 class StopSignHighwayTile extends HighwayTile {
     constructor() {
-        super(loadImage("assets/images/stopSignTile.jpeg"));
+        super(loadImage("assets/images/carMiniGame/drivingGame/stopSignTile.jpeg"));
 
         //Sets vars
         this.instruction = "Stop!";

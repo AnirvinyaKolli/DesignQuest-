@@ -1,4 +1,14 @@
+function preload(){
+
+  //Loading global assets
+  blockyFont = loadFont("assets/fonts/DotGothic16-Regular.ttf");
+
+}
+
 function setup() {
+
+  //Set font
+  textFont(blockyFont);
 
   //Set game values 
   frameRate(60);

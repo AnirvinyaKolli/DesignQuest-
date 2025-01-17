@@ -51,7 +51,7 @@ class DrivingSimulatorScreen extends Screen {
         DrivingSimulatorScreen.roadManager.drawTiles();
         DrivingSimulatorScreen.speedometer.drawSpeedometer();
         DrivingSimulatorScreen.speedLimit.drawSpeedlimitBox();
-        rect(width / 2 + 30, height / 2, 100, 200);
+        image(chosenCar.drivingSprite, width / 2 + 30, height / 2, 100, 200);
     }
 
 } 

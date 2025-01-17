@@ -1,5 +1,8 @@
-let gameScreens = [HomeScreen, CarSelectorScreen, DrivingSimulatorScreen];
-let gameState = DrivingSimulatorScreen;
+//Font assets
+let blockyFont;
+
+let gameScreens = [HomeScreen, CarSelectorScreen, DrivingSimulatorScreen, PreDrivingScreen];
+let gameState = CarSelectorScreen;
 
 let pointLossMessages = [];
 //For Transport section
