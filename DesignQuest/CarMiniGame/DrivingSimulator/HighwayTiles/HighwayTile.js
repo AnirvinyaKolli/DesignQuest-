@@ -1,8 +1,8 @@
 class HighwayTile {
-    constructor(img = loadImage("assets/images/carMiniGame/drivingGame/testTileTexture.jpeg")) {
+    constructor(img = loadImage("assets/images/carMiniGame/drivingGame/highwayTile.png")) {
 
         //Width of tile 
-        this.tileWidth = 400;
+        this.tileWidth = height/2;
 
         //Sets asset 
         this.img = img;
@@ -20,7 +20,7 @@ class HighwayTile {
     drawTile() {
 
         //Renders road tile
-        image(this.img, (width - this.tileWidth) / 2, this.y, this.tileWidth, height / 2);
+        image(this.img, (width - this.tileWidth) / 2, this.y, this.tileWidth, height / 2 +1);
 
     }
     checkSpeed() {

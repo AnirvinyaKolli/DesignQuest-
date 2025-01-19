@@ -7,11 +7,15 @@ class CheckBox extends Button {
         this.checked = false;
         this.label = label;
 
+        //Assets 
+        this.checkedImage = loadImage("assets/images/carMiniGame/preDrivingChecks/checkedBox.png");
+        this.uncheckedImage = loadImage("assets/images/carMiniGame/preDrivingChecks/uncheckedBox.png");
+
     }
 
     drawButton() {
 
-        
+
         //Switches value of check based on click
         if (this.detectClick()) {
             this.checked = !this.checked;
@@ -23,11 +27,10 @@ class CheckBox extends Button {
         text(this.label, this.x + this.buttonWidth + textWidth(this.label) / 2 + 5, this.y + 2);
         fill(255);
         if (this.checked) {
-            fill(0, 255, 0);
+            image(this.checkedImage, this.x, this.y, this.buttonWidth, this.buttonHeight);
+        } else {
+            image(this.uncheckedImage, this.x, this.y, this.buttonWidth, this.buttonHeight);
         }
 
-        rect(this.x, this.y, this.buttonWidth, this.buttonHeight);
-        fill(255);
     }
-
 }

@@ -4,8 +4,8 @@ class CarSelectorScreen extends Screen {
     static nextButton;
 
     //Constraints for button
-    static buttonHeight = 350;
-    static buttonWidth = 200;
+    static buttonHeight = 175;
+    static buttonWidth = 100;
 
     //List of buttons
     static possibleButtons = [];
