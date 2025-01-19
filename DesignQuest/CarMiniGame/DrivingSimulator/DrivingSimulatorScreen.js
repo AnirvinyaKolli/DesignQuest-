@@ -1,6 +1,6 @@
 class DrivingSimulatorScreen extends Screen {
 
-    //Inits screen values 
+    //Inits screen values  
     static testTile;
     static roadManager;
     static speedometer;

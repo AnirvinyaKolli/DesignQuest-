@@ -7,8 +7,8 @@ class Button {
         this.buttonWidth = buttonWidth;
         this.buttonHeight = buttonHeight;
         this.canClick = true;
-        this.mouseWasPressed = false;
         this.margin = margin;
+        this.mouseWasPressed = false;
     }
 
     detectHover() {
@@ -30,7 +30,7 @@ class Button {
             if (mouseIsPressed && this.canClick && !this.mouseWasPressed) {
                 this.canClick = false;
                 clicked = true;
-                console.log("clicked");
+
             }
         }
 

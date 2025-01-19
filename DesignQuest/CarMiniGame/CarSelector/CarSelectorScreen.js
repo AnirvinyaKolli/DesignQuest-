@@ -15,7 +15,7 @@ class CarSelectorScreen extends Screen {
 
     static initializeScreen() {
         //Init next button
-        CarSelectorScreen.nextButton = new NextScreenButton(DrivingSimulatorScreen);
+        CarSelectorScreen.nextButton = new NextScreenButton(PreDrivingScreen);
 
         //Init info box 
         CarSelectorScreen.carInfoBox = new CarInfoBox();
@@ -30,7 +30,7 @@ class CarSelectorScreen extends Screen {
                 new Car(
                     loadImage("assets/images/2.png"),
                     loadImage("assets/images/2.png"),
-                    "Green"
+                    "Green\nIDEK ANYMORE!!!\nWOOO!"
                 )
             ),
             new CarChoiceButton(
@@ -41,7 +41,7 @@ class CarSelectorScreen extends Screen {
                 new Car(
                     loadImage("assets/images/2.png"),
                     loadImage("assets/images/2.png"),
-                    "Blue"
+                    "Blue\nSUPER CAR!!!"
                 )
             ),
             new CarChoiceButton(
@@ -52,7 +52,7 @@ class CarSelectorScreen extends Screen {
                 new Car(
                     loadImage("assets/images/2.png"),
                     loadImage("assets/images/2.png"),
-                    "Red"
+                    "Red\nCRASH OUT TIME!!!"
                 )
             ),
         ];

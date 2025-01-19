@@ -11,7 +11,10 @@ class CarInfoBox {
         const boxY = height * 2 / 3;
 
         //Renders information
+        fill(255);
         rect(boxX, boxY, boxWidth, boxHeight);
-        text(car.name, boxX + 50, boxY + 50);
+        fill(0);
+        text(car.name, boxWidth/2, boxY + 50);
+        fill(255);
     }
 }
