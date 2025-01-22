@@ -7,7 +7,7 @@ class Button {
         this.buttonWidth = buttonWidth;
         this.buttonHeight = buttonHeight;
         this.canClick = true;
-        this.margin = margin;
+
         this.mouseWasPressed = false;
     }
 

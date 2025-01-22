@@ -23,8 +23,9 @@ class CarChoiceButton extends Button {
         if (this.detectHover()) {
 
             //Draws expanded button when hovering 
-            image(this.car.showCaseSprite, this.x - this.margin, this.y - this.margin, this.buttonWidth + this.margin * 2, this.buttonHeight + this.margin * 2);
-            image(this.currentImage, this.x - this.margin, this.y - this.margin, this.buttonWidth + this.margin * 2, this.buttonHeight + this.margin * 2);
+            console.log(this.x-this.buttonWidth*0.5);
+            image(this.car.showCaseSprite, this.x - this.buttonWidth*0.125, this.y - this.buttonHeight*.125, this.buttonWidth * 1.25, this.buttonHeight *1.25);
+            image(this.currentImage, this.x - this.buttonWidth*0.125, this.y - this.buttonHeight*.125, this.buttonWidth * 1.25, this.buttonHeight *1.25);
 
         } else {
 

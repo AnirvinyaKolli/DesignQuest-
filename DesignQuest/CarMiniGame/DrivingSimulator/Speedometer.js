@@ -2,11 +2,14 @@ class Speedometer {
     constructor() {
 
         //Init vars
-        this.x = width / 2 - 550;
+        this.x = width / 2 - 450;
         this.y = height - 220;
-        this.boxWidth = 300;
+        this.boxWidth = 200;
         this.boxHeight = 200;
         this.speedFactor = speed;
+        this.needle = loadImage("assets/images/carMiniGame/drivingGame/speedometerNeedle.png");
+        this.dial = loadImage("assets/images/carMiniGame/drivingGame/speedometerDial.png");
+
     }
     drawSpeedometer() {
 
@@ -14,7 +17,11 @@ class Speedometer {
         this.speedFactor = speed * 12;
 
         //Render container
+        fill(0);
         rect(this.x, this.y, this.boxWidth, this.boxHeight);
+        image(this.dial, this.x, this.y, this.boxWidth, this.boxHeight);
+        image(this.needle, this.x+this.boxWidth/4, this.y, this.boxWidth/2, this.boxHeight/2)
+        fill(255);
 
         //Render speedometer 
         textAlign(CENTER, CENTER);
