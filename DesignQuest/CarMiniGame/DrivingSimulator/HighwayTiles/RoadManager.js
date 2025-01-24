@@ -21,6 +21,8 @@ class RoadManager {
         //No clue tbh
         this.currentTiles;
 
+        carPos = height/2;
+
     }
     cycleTiles() {
 
@@ -31,9 +33,9 @@ class RoadManager {
         if (this.i < this.tiles.length - 1) {
 
             //Sets three tiles up, middle and down
-            this.tiles[this.i + 1].y = this.loc - height / 2;
+            this.tiles[this.i + 1].y = this.loc - carPos;
             this.tiles[this.i].y = this.loc;
-            this.tiles[this.i - 1].y = this.loc + height / 2;
+            this.tiles[this.i - 1].y = this.loc + carPos;
 
             //Sets cycle location to j
             this.loc = this.j;
@@ -53,11 +55,11 @@ class RoadManager {
             issueMessage = this.tiles[this.i].checkSpeed();
 
             //If tile passes car
-            if (this.j > height / 2) {
+            if (this.j > carPos) {
 
                 //Resets j and loc
                 this.j = 0;
-                this.loc = this.loc - height / 2;
+                this.loc = this.loc -carPos;
 
                 //checks for stop sign
                 switch(this.tiles[this.i].constructor.name){
@@ -70,11 +72,11 @@ class RoadManager {
                         }
                         break;
                     case 'CrossRoadTile':
-                        if (this.tiles[this.i].hasPaused == false) {
+                        if (this.tiles[this.i].timer < this.tiles[this.i].minTimeWaited) {
                             drivingScore -= 30;
                             pointLossMessages.push(new PointLossMessage("Cross Walk Missed -30", 200, height / 2));
                         } else {
-                            this.tiles[this.i].hasPaused = false;
+                            this.tiles[this.i].timer = 0;
                         }
                         break;
                     default:

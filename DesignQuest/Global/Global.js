@@ -14,6 +14,7 @@ let someCarSelected = false;
 let chosenCar;
 
 //For Driving Game Section
+let carPos;
 let currentSpeedLimit;
 let speed = 0;
 let highwayTiles = [];

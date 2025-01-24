@@ -4,14 +4,13 @@ class CrossRoadTile extends HighwayTile {
 
         //Sets vars
         this.instruction = "PENGUIN!";
-        this.hasPaused = false;
+        
         this.timer = 0;
-        this.crossed = 3*60;
+        this.minTimeWaited = 3*60;
 
     }
 
     checkTile() {
         this.timer++;
-        
     }
 }

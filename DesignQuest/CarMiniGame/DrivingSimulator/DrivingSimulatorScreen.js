@@ -24,7 +24,7 @@ class DrivingSimulatorScreen extends Screen {
             new HighwayTile(),
             new StopSignHighwayTile(),
             new HighwayTile(),
-            new HighwayTile(),
+            new CrossRoadTile,
             new StopSignHighwayTile(),
             new HighwayTile(),
             new StopSignHighwayTile(),
