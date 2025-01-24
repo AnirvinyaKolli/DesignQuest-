@@ -5,12 +5,13 @@ class RoadManager {
         this.tiles = tiles;
 
         //Physics constants 
-        this.acceleration = 0.2;
-        this.deceleration = 0.1;
-        this.friction = 0.05;
+        this.acceleration = 0.3;
+        this.deceleration = 0.2;
+        this.friction = 0.1;
 
         //Max speed
         this.maxSpeed = 21;
+
 
         //Cycling vars 
         this.loc = 0;
@@ -59,19 +60,28 @@ class RoadManager {
                 this.loc = this.loc - height / 2;
 
                 //checks for stop sign
-                if (this.tiles[this.i].hasStopped != undefined) {
-
-                    if (this.tiles[this.i].hasStopped == false) {
-                        drivingScore -= 10;
-                        pointLossMessages.push(new PointLossMessage("Stop Sign Missed: -10", 200, height / 2));
-                    } else {
-                        this.tiles[this.i].hasStopped = false;
-                    }
-
-                } else {
-                    console.log("good");
+                switch(this.tiles[this.i].constructor.name){
+                    case 'StopSignHighwayTile':
+                        if (this.tiles[this.i].hasStopped == false) {
+                            drivingScore -= 10;
+                            pointLossMessages.push(new PointLossMessage("Stop Sign Missed: -10", 200, height / 2));
+                        } else {
+                            this.tiles[this.i].hasStopped = false;
+                        }
+                        break;
+                    case 'CrossRoadTile':
+                        if (this.tiles[this.i].hasPaused == false) {
+                            drivingScore -= 30;
+                            pointLossMessages.push(new PointLossMessage("Cross Walk Missed -30", 200, height / 2));
+                        } else {
+                            this.tiles[this.i].hasPaused = false;
+                        }
+                        break;
+                    default:
+                        console.log('how did we get here?');
+                        break;
                 }
-
+                
                 //Inc i
                 this.i++;
             }

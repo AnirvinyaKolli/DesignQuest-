@@ -12,7 +12,7 @@ class HighwayTile {
 
         //Speed limit
         this.speedLimit = 10;
-
+        
         //Driving instruction 
         this.instruction = "Keep Driving";
 
@@ -38,6 +38,8 @@ class HighwayTile {
             return "Too Fast!";
 
         }
+
+        
 
         return "You're doing great!";
     }
