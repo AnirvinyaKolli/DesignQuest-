@@ -1,7 +1,7 @@
 class Pedestrian{
     constructor(){
-        this.pedestrianWidth = 100; 
-        this.pedestrianHeight = 100;
+        this.pedestrianWidth = 50; 
+        this.pedestrianHeight = 50;
         let value = random(1,4);
         switch(round(value)){
             case 1:
@@ -19,7 +19,7 @@ class Pedestrian{
         }
     }
 
-    drawPedestrian(y, timer, initX){
-        
+    drawPedestrian(y, timer, timerLimit, initX, tileWidth){
+        rect(initX-this.pedestrianWidth+map(timer, 0, timerLimit, 0, (width + tileWidth)/2), y+30, this.pedestrianWidth, this.pedestrianHeight);
     }
 }

@@ -6,14 +6,27 @@ class CrossRoadTile extends HighwayTile {
         this.instruction = "PENGUIN!";
         
         this.timer = 0;
-        this.minTimeWaited = 20*60;
+        this.minTimeWaited = 2*60;
 
+        this.canGo = false; 
         this.pedestrian = new Pedestrian();
 
     }
 
     checkTile() {
-        this.timer++;
-        
+        this.canGo = true; 
+    }
+
+    drawTile() {
+
+        if(this.canGo){
+            this.timer++;
+            console.log(this.timer);
+        }
+        //Renders road tile
+        image(this.img, (width - this.tileWidth) / 2, this.y, this.tileWidth, height / 2 +1);
+
+        this.pedestrian.drawPedestrian(this.y, this.timer, this.minTimeWaited, 0, this.tileWidth);
+
     }
 }

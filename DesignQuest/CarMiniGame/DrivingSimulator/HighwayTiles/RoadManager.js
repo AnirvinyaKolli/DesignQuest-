@@ -1,8 +1,8 @@
 class RoadManager {
-    constructor(tiles) {
+    constructor(givenTiles) {
 
         //List of tiles
-        this.tiles = tiles;
+        this.tiles = [new HighwayTile(), new HighwayTile(), new HighwayTile()];
 
         //Physics constants 
         this.acceleration = 0.3;
@@ -21,76 +21,88 @@ class RoadManager {
         //No clue tbh
         this.currentTiles;
 
-        carPos = height/2;
+        carPos = height / 2;
 
     }
     cycleTiles() {
+
+        //Three tile set
+
 
         //Moves down based on global speed
         this.j += speed;
 
         //Checks if list is over
-        if (this.i < this.tiles.length - 1) {
 
-            //Sets three tiles up, middle and down
-            this.tiles[this.i + 1].y = this.loc - carPos;
-            this.tiles[this.i].y = this.loc;
-            this.tiles[this.i - 1].y = this.loc + carPos;
 
-            //Sets cycle location to j
-            this.loc = this.j;
+        //Sets three tiles up, middle and down
+        this.tiles[0].y = this.loc - carPos;
+        this.tiles[1].y = this.loc;
+        this.tiles[2].y = this.loc + carPos;
 
-            //Renders tiles
-            this.tiles[this.i + 1].drawTile();
-            this.tiles[this.i].drawTile();
-            this.tiles[this.i - 1].drawTile();
+        //Sets cycle location to j
+        this.loc = this.j;
 
-            //Checks current tile 
-            this.tiles[this.i].checkTile();
+        //Renders tiles
+        this.tiles.forEach(el => el.drawTile());
 
-            //Speed limit check
-            currentSpeedLimit = this.tiles[this.i].speedLimit;
+        //Checks current tile 
+        this.tiles[1].checkTile();
 
-            //Shows message
-            issueMessage = this.tiles[this.i].checkSpeed();
+        //Speed limit check
+        currentSpeedLimit = this.tiles[1].speedLimit;
 
-            //If tile passes car
-            if (this.j > carPos) {
+        //Shows message
+        issueMessage = this.tiles[1].checkSpeed();
 
-                //Resets j and loc
-                this.j = 0;
-                this.loc = this.loc -carPos;
+        //If tile passes car
+        if (this.j > carPos) {
 
-                //checks for stop sign
-                switch(this.tiles[this.i].constructor.name){
-                    case 'StopSignHighwayTile':
-                        if (this.tiles[this.i].hasStopped == false) {
-                            drivingScore -= 10;
-                            pointLossMessages.push(new PointLossMessage("Stop Sign Missed: -10", 200, height / 2));
-                        } else {
-                            this.tiles[this.i].hasStopped = false;
-                        }
-                        break;
-                    case 'CrossRoadTile':
-                        if (this.tiles[this.i].timer < this.tiles[this.i].minTimeWaited) {
-                            drivingScore -= 30;
-                            pointLossMessages.push(new PointLossMessage("Cross Walk Missed -30", 200, height / 2));
-                        } else {
-                            this.tiles[this.i].timer = 0;
-                        }
-                        break;
-                    default:
-                        console.log('how did we get here?');
-                        break;
-                }
-                
-                //Inc i
-                this.i++;
+            //Resets j and loc
+            this.j = 0;
+            this.loc = this.loc - carPos;
+
+            //checks for stop sign
+            switch (this.tiles[1].constructor.name) {
+                case 'StopSignHighwayTile':
+                    if (this.tiles[1].hasStopped == false) {
+                        drivingScore -= 10;
+                        pointLossMessages.push(new PointLossMessage("Stop Sign Missed: -10", 200, height / 2));
+                    } else {
+                        this.tiles[1].hasStopped = false;
+                    }
+                    break;
+                case 'CrossRoadTile':
+                    if (this.tiles[1].timer < this.tiles[1].minTimeWaited) {
+                        drivingScore -= 30;
+                        pointLossMessages.push(new PointLossMessage("Cross Walk Missed -30", 200, height / 2));
+                    }
+
+                    break;
+                default:
+                    console.log('how did we get here?');
+                    break;
             }
 
-            //Test list reset
-        } else {
-            this.i = 1;
+            this.tiles.pop();
+            this.tiles.splice(0, 0, this.getNextTile());
+        }
+
+    }
+
+
+    getNextTile() {
+        let outcomes = [new HighwayTile(), new StopSignHighwayTile(), new CrossRoadTile];
+        let probabilities = [0.8, 0.1, 0.1];
+        let totalWeight = probabilities.reduce((sum, weight) => sum + weight, 0);
+        let randomValue = random(totalWeight);
+
+        let cumulativeWeight = 0;
+        for (let i = 0; i < probabilities.length; i++) {
+            cumulativeWeight += probabilities[i];
+            if (randomValue < cumulativeWeight) {
+                return outcomes[i];
+            }
         }
     }
 

@@ -12,6 +12,7 @@ class HighwayTile {
 
         //Speed limit
         this.speedLimit = 10;
+        this.speedMin = 5;
         
         //Driving instruction 
         this.instruction = "Keep Driving";
@@ -24,7 +25,6 @@ class HighwayTile {
 
     }
     checkSpeed() {
-
         //Checks speed limit
         if (speed > this.speedLimit) {
 

@@ -20,3 +20,4 @@ let speed = 0;
 let highwayTiles = [];
 let issueMessage = "You're Doing Great!";
 let drivingScore = 200;
+    
