@@ -10,13 +10,15 @@ class SpeedLimit {
     drawSpeedlimitBox() {
 
         //Renders speed limit box
+        
+        push();
         rect(this.x, this.y, this.boxWidth, this.boxHeight);
-        textAlign(CENTER, CENTER);
         textSize(30);
         fill(0);
         text(issueMessage, this.x + this.boxWidth / 2, this.y + this.boxHeight / 2 - 20);
         textSize(20);
         text("Speed Limit: " + round(currentSpeedLimit * 3) + " MPH", this.x + this.boxWidth / 2, this.y + this.boxHeight / 2 + 30);
-        fill(255);
+        pop();
+        
     }
 } 

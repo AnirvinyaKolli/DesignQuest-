@@ -22,10 +22,12 @@ class CheckBox extends Button {
         }
 
         //Temp render
+        push();
         textSize(23);
         fill(0);
         text(this.label, this.x + this.buttonWidth + textWidth(this.label) / 2 + 5, this.y + 2);
-        fill(255);
+        pop();
+        
         if (this.checked) {
             image(this.checkedImage, this.x, this.y, this.buttonWidth, this.buttonHeight);
         } else {
