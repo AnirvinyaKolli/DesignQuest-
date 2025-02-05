@@ -16,9 +16,11 @@ class HomeScreen extends Screen {
 
         //render screen
         background(0, 0, 220);
+        push();
         textSize(62);
         fill(0);
         text(HomeScreen.title, width / 2, 200);
+        pop();
         HomeScreen.playButton.drawButton();
     }
 }

@@ -9,6 +9,7 @@ function setup() {
 
   //Set font
   textFont(blockyFont);
+  textAlign(CENTER, CENTER);
 
   //Set game values 
   frameRate(60);

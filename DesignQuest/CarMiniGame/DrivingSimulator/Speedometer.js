@@ -35,17 +35,14 @@ class Speedometer {
         imageMode(CORNER);
         pop();
 
-        textAlign(CENTER, CENTER);
+        push();
         textSize(25);
-        fill(200, 55, 55);
-        noStroke();
         stroke(0);
         fill(0);
         if(speed > currentSpeedLimit){
             fill(255,0,0);
         }
         text(round(speed * 3) + " MPH", this.x + this.boxWidth / 2, this.y + this.boxHeight / 2 + 45);
-        fill(255);
-
+        pop();
     }
 }
