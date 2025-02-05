@@ -6,7 +6,7 @@ class CrossRoadTile extends HighwayTile {
         this.instruction = "PENGUIN!";
         
         this.timer = 0;
-        this.minTimeWaited = 2*60;
+        this.minTimeWaited = 4*60;
 
         this.canGo = false; 
         this.pedestrian = new Pedestrian();

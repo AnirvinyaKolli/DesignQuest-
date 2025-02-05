@@ -3,7 +3,7 @@ class Speedometer {
 
         //Init vars
         this.x = width / 2 - 450;
-        this.y = height - 220;
+        this.y = 50;
         this.boxWidth = 200;
         this.boxHeight = 200;
         this.needle = loadImage("assets/images/carMiniGame/drivingGame/speedometerNeedle.png");
@@ -14,18 +14,9 @@ class Speedometer {
 
 
         //Render container
-        fill(0);
-        rect(this.x, this.y, this.boxWidth, this.boxHeight);
         image(this.dial, this.x, this.y, this.boxWidth, this.boxHeight);
 
-        
-        
-        
-        
-        fill(255);
-
         //Render speedometer 
-        
         push();
         angleMode(DEGREES);
         translate(this.x+this.boxWidth/2, this.y+this.boxHeight/2);

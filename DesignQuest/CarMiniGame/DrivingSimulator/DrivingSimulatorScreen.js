@@ -5,6 +5,7 @@ class DrivingSimulatorScreen extends Screen {
     static roadManager;
     static speedometer;
     static speedLimit;
+    static runningBackground;
 
     static initializeScreen() {
 
@@ -36,6 +37,9 @@ class DrivingSimulatorScreen extends Screen {
 
         //Set road manager
         DrivingSimulatorScreen.roadManager = new RoadManager(highwayTiles);
+
+        //Set looping background
+        DrivingSimulatorScreen.runningBackground = new RunningBackground();
     }
 
     static drawScreen() {
@@ -44,10 +48,12 @@ class DrivingSimulatorScreen extends Screen {
         background(255);
 
         //rendering 
+        DrivingSimulatorScreen.runningBackground.drawBackground();
         DrivingSimulatorScreen.roadManager.drawTiles();
         DrivingSimulatorScreen.speedometer.drawSpeedometer();
         DrivingSimulatorScreen.speedLimit.drawSpeedlimitBox();
-        image(chosenCar.drivingSprite, width / 2 + 30, height / 2, 125, 200);
+        
+        image(chosenCar.drivingSprite, width / 2 + 30, height / 2+100, 125, 200);
     }
 
 } 

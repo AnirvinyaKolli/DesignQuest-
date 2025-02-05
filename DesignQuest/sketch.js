@@ -13,7 +13,7 @@ function setup() {
 
   //Set game values 
   frameRate(60);
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(1600, 900);
 
   //Print canvas sze 
   console.log(width + ":" + height);
