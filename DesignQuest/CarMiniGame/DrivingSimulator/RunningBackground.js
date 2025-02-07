@@ -1,7 +1,7 @@
 class RunningBackground{
     
-    constructor(){
-        this.bg = loadImage('assets/images/backgrounds/scrollingDrivingBackground.png'); 
+    constructor(bg){
+        this.bg = bg; 
         this.y = 0;
     }
 

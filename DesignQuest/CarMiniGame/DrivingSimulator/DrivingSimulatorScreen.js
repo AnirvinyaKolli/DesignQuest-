@@ -6,7 +6,9 @@ class DrivingSimulatorScreen extends Screen {
     static speedometer;
     static speedLimit;
     static cop;
-    static runningBackground;
+    static runningBackgroundFloor;
+    static runningBackgroundTrees;
+
 
     static initializeScreen() {
 
@@ -23,7 +25,9 @@ class DrivingSimulatorScreen extends Screen {
         DrivingSimulatorScreen.cop = new Cop(350, 300);
 
         //Set looping background
-        DrivingSimulatorScreen.runningBackground = new RunningBackground();
+        DrivingSimulatorScreen.runningBackgroundFloor = new RunningBackground(loadImage('assets/images/backgrounds/backgroundFloor.png'));
+        DrivingSimulatorScreen.runningBackgroundTrees = new RunningBackground(loadImage('assets/images/backgrounds/backgroundTrees.png'));
+
     }
 
     static drawScreen() {
@@ -32,8 +36,9 @@ class DrivingSimulatorScreen extends Screen {
         background(255);
 
         //rendering 
-        DrivingSimulatorScreen.runningBackground.drawBackground();
+        DrivingSimulatorScreen.runningBackgroundFloor.drawBackground();
         DrivingSimulatorScreen.roadManager.drawTiles();
+        DrivingSimulatorScreen.runningBackgroundTrees.drawBackground();
         DrivingSimulatorScreen.speedometer.drawSpeedometer();
         DrivingSimulatorScreen.speedLimit.drawSpeedlimitBox();
         DrivingSimulatorScreen.cop.drawCop();
