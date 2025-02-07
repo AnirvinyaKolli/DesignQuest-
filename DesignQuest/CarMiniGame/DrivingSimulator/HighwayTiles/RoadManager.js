@@ -107,11 +107,10 @@ class RoadManager {
     }
 
     drawTiles() {
-
         //Renders all tiles + other code
         this.cycleTiles();
         this.controlSpeed();
-        this.drawAccelerationControls();
+
     }
 
     controlSpeed() {
@@ -125,13 +124,6 @@ class RoadManager {
         }
         speed -= this.friction;
         speed = constrain(speed, 0, this.maxSpeed);
-
-    }
-    drawAccelerationControls() {
-
-        //Draws controls
-        rect(width / 2 + this.tiles[0].tileWidth / 2 + 75, height * 2 / 3 + 30, 150, height * 1 / 3 - 50);
-        rect(width / 2 + this.tiles[0].tileWidth / 2 + 250, height * 2 / 3 + 30, 150, height * 1 / 3 - 50);
 
     }
 
