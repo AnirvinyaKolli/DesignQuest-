@@ -1,5 +1,5 @@
 class RoadManager {
-    constructor(givenTiles) {
+    constructor() {
 
         //List of tiles
         this.tiles = [new HighwayTile(), new HighwayTile(), new HighwayTile()];
