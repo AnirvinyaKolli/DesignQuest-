@@ -20,7 +20,7 @@ class DrivingSimulatorScreen extends Screen {
         DrivingSimulatorScreen.roadManager = new RoadManager();
 
         //Set cop
-        DrivingSimulatorScreen.cop = new Cop(width/2-200, 600);
+        DrivingSimulatorScreen.cop = new Cop(350, 300);
 
         //Set looping background
         DrivingSimulatorScreen.runningBackground = new RunningBackground();

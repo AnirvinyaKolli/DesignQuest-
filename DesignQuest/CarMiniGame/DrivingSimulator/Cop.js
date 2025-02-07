@@ -2,7 +2,7 @@ class Cop {
     constructor(x = 0, y = 0){
         this.x = x;
         this.y = y;
-        this.copWidth = 100; 
+        this.copWidth = 200; 
         this.copHeight = 400; 
         this.copStates = new Map();
             this.copStates.set("Normal", loadImage('assets/images/2.png'));
@@ -12,7 +12,7 @@ class Cop {
     }
 
     drawCop(){
-        image(this.copStates.get(cState), this.x,this.y,this.copWidth,this.copHeight);
+        image(this.copStates.get(this.cState), this.x,this.y,this.copWidth,this.copHeight);
     }
     setState(state){
         if(state == "Normal" || state == "Angry" || state == "Agitated"){
