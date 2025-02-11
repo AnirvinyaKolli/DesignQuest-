@@ -2,7 +2,7 @@ class HighwayTile {
     constructor(img = loadImage("assets/images/carMiniGame/drivingGame/highwayTile.png")) {
 
         //Width of tile 
-        this.tileWidth = height/2;
+        this.tileWidth = 404;
 
         //Sets asset 
         this.img = img;

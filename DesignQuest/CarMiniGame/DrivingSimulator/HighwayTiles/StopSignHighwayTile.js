@@ -10,6 +10,9 @@ class StopSignHighwayTile extends HighwayTile {
 
     checkTile() {
 
+        //Sets Light
+        DrivingSimulatorScreen.trafficLight.setState("stopSign");
+
         //Checks for speed
         if (speed == 0) {
             this.hasStopped = true;

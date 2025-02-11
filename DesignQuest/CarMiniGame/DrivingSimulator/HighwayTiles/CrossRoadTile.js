@@ -10,7 +10,7 @@ class CrossRoadTile extends HighwayTile {
 
         this.canGo = false; 
         this.pedestrian = new Pedestrian();
-
+        this.lightState = "greenLight";
     }
 
     checkTile() {
@@ -19,14 +19,22 @@ class CrossRoadTile extends HighwayTile {
 
     drawTile() {
 
+        DrivingSimulatorScreen.trafficLight.setState(this.lightState);
         if(this.canGo){
             this.timer++;
-            console.log(this.timer);
         }
-        //Renders road tile
+
+        if(this.timer>this.minTimeWaited){
+            this.lightState = "greenLight";
+        }
+        if(this.timer<this.minTimeWaited && this.canGo){
+            this.lightState = "redLight";
+        }
+
+        //Renders road tiles
         image(this.img, (width - this.tileWidth) / 2, this.y, this.tileWidth, height / 2 +1);
 
-        this.pedestrian.drawPedestrian(this.y, this.timer, this.minTimeWaited, 0, this.tileWidth);
+        this.pedestrian.drawPedestrian(this.y, this.timer, this.minTimeWaited);
 
     }
 }

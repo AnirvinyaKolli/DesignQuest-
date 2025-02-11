@@ -86,6 +86,8 @@ class RoadManager {
 
             this.tiles.pop();
             this.tiles.splice(0, 0, this.getNextTile());
+
+            DrivingSimulatorScreen.trafficLight.setState("greenLight");
         }
 
     }

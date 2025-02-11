@@ -2,9 +2,12 @@
 let blockyFont;
 
 
+//TESTING 
+let testCar; 
+
 //Game Screens 
 let gameScreens = [HomeScreen, CarSelectorScreen, DrivingSimulatorScreen, PreDrivingScreen];
-let gameState = CarSelectorScreen;
+let gameState = DrivingSimulatorScreen;
 
 let pointLossMessages = [];
 //For Transport section
@@ -21,3 +24,4 @@ let highwayTiles = [];
 let issueMessage = "You're Doing Great!";
 let drivingScore = 200;
     
+
