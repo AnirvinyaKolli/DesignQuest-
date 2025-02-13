@@ -22,7 +22,7 @@ class DrivingSimulatorScreen extends Screen {
         DrivingSimulatorScreen.roadManager = new RoadManager();
 
         //Set cop
-        DrivingSimulatorScreen.cop = new Cop(350, 300);
+        DrivingSimulatorScreen.cop = new Cop();
 
         //Set looping background
         DrivingSimulatorScreen.runningBackgroundFloor = new RunningBackground(loadImage('assets/images/backgrounds/backgroundFloor.png'));
@@ -42,7 +42,7 @@ class DrivingSimulatorScreen extends Screen {
         DrivingSimulatorScreen.roadManager.drawTiles();
         DrivingSimulatorScreen.runningBackgroundTrees.drawBackground();
         DrivingSimulatorScreen.speedometer.drawSpeedometer();
-        DrivingSimulatorScreen.speedLimit.drawSpeedlimitBox();
+        // DrivingSimulatorScreen.speedLimit.drawSpeedlimitBox();
         DrivingSimulatorScreen.cop.drawCop();
         DrivingSimulatorScreen.trafficLight.drawLight();
 

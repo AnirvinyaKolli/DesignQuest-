@@ -1,7 +1,7 @@
 class TrafficLight{
     constructor(){
-        this.x = 0; 
-        this.y = 0; 
+        this.x = width/2-450; 
+        this.y = 20; 
         this.lightWidth = 200;
         this.lightHeight = 200;  
         this.states = new Map();

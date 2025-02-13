@@ -2,8 +2,8 @@ class Speedometer {
     constructor() {
 
         //Init vars
-        this.x = width / 2 - 350;
-        this.y = 125;
+        this.x = width / 2 + 425;
+        this.y = height-125;
         this.boxWidth = 200;
         this.boxHeight = 200;
         this.needle = loadImage("assets/images/carMiniGame/drivingGame/speedometerNeedle.png");

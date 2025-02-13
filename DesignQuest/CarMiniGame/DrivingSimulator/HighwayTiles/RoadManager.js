@@ -23,6 +23,12 @@ class RoadManager {
 
         carPos = height / 2;
 
+        this.started = 0; 
+
+        this.timer; 
+
+        this.stop = false; 
+
     }
     cycleTiles() {
 
@@ -68,6 +74,7 @@ class RoadManager {
                     if (this.tiles[1].hasStopped == false) {
                         drivingScore -= 10;
                         pointLossMessages.push(new PointLossMessage("Stop Sign Missed: -10", 200, height / 2));
+                        DrivingSimulatorScreen.cop.anger += 1;
                     } else {
                         this.tiles[1].hasStopped = false;
                     }
@@ -76,6 +83,7 @@ class RoadManager {
                     if (this.tiles[1].timer < this.tiles[1].minTimeWaited) {
                         drivingScore -= 30;
                         pointLossMessages.push(new PointLossMessage("Cross Walk Missed -30", 200, height / 2));
+                        DrivingSimulatorScreen.cop.anger += 5;
                     }
 
                     break;
@@ -84,8 +92,14 @@ class RoadManager {
                     break;
             }
 
-            this.tiles.pop();
-            this.tiles.splice(0, 0, this.getNextTile());
+            if(!this.stop){
+                this.tiles.pop();
+                this.tiles.splice(0, 0, this.getNextTile());
+            }else{
+                this.tiles.pop();
+                //this.tiles.splice(0, 0, new EndTile());
+            }
+            
 
             DrivingSimulatorScreen.trafficLight.setState("greenLight");
         }
@@ -111,7 +125,18 @@ class RoadManager {
     drawTiles() {
         //Renders all tiles + other code
         this.cycleTiles();
-        this.controlSpeed();
+        if(!this.stop){
+            this.controlSpeed();
+        }
+
+        if(this.started == 1){
+            this.timer = new Timer(240000);
+        }else if(this.started > 1){
+            console.log(this.timer.timeLeft())
+            if(this.timer.isFinished()){
+                this.stop = true; 
+            }
+        }
 
     }
 
@@ -120,6 +145,7 @@ class RoadManager {
         //Acc based on keys
         if (keyIsDown(UP_ARROW) || keyIsDown(87)) { //87 is for W
             speed += this.acceleration;
+            this.started ++; 
         }
         if (keyIsDown(DOWN_ARROW) || keyIsDown(83)) { //83 is for S
             speed -= this.deceleration;
