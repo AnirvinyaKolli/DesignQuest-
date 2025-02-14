@@ -85,10 +85,10 @@ class RoadManager {
                         pointLossMessages.push(new PointLossMessage("Cross Walk Missed -30", 200, height / 2));
                         DrivingSimulatorScreen.cop.anger += 5;
                     }
-
+                case 'EndTile':
+                    stopFactor = 0;
                     break;
                 default:
-                    console.log('how did we get here?');
                     break;
             }
 
@@ -97,7 +97,7 @@ class RoadManager {
                 this.tiles.splice(0, 0, this.getNextTile());
             }else{
                 this.tiles.pop();
-                //this.tiles.splice(0, 0, new EndTile());
+                this.tiles.splice(0, 0, new EndTile());
             }
             
 
@@ -108,6 +108,9 @@ class RoadManager {
 
 
     getNextTile() {
+        if(this.tiles[1] == new CrossRoadTile()){
+            return(outcomes[0]);
+        }
         let outcomes = [new HighwayTile(), new StopSignHighwayTile(), new CrossRoadTile];
         let probabilities = [0.8, 0.1, 0.1];
         let totalWeight = probabilities.reduce((sum, weight) => sum + weight, 0);
@@ -130,14 +133,16 @@ class RoadManager {
         }
 
         if(this.started == 1){
-            this.timer = new Timer(240000);
+            this.timer = new Timer(2400);
         }else if(this.started > 1){
             console.log(this.timer.timeLeft())
             if(this.timer.isFinished()){
                 this.stop = true; 
+                speed = stopFactor;
             }
         }
-
+        speed -= this.friction;
+        speed = constrain(speed, 0, this.maxSpeed);
     }
 
     controlSpeed() {
@@ -150,8 +155,6 @@ class RoadManager {
         if (keyIsDown(DOWN_ARROW) || keyIsDown(83)) { //83 is for S
             speed -= this.deceleration;
         }
-        speed -= this.friction;
-        speed = constrain(speed, 0, this.maxSpeed);
 
     }
 

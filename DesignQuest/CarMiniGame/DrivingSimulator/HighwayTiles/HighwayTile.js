@@ -3,7 +3,7 @@ class HighwayTile {
 
         //Width of tile 
         this.tileWidth = 404;
-
+        this.tileHeight = height/2+1
         //Sets asset 
         this.img = img;
 
@@ -21,7 +21,7 @@ class HighwayTile {
     drawTile() {
 
         //Renders road tile
-        image(this.img, (width - this.tileWidth) / 2, this.y, this.tileWidth, height / 2 +1);
+        image(this.img, (width - this.tileWidth) / 2, this.y, this.tileWidth, this.tileHeight);
 
     }
     checkSpeed() {

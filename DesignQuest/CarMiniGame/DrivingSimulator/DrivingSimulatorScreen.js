@@ -9,6 +9,7 @@ class DrivingSimulatorScreen extends Screen {
     static runningBackgroundFloor;
     static runningBackgroundTrees;
     static trafficLight; 
+    static infoBox;
 
     static initializeScreen() {
 
@@ -20,6 +21,9 @@ class DrivingSimulatorScreen extends Screen {
 
         //Set road manager
         DrivingSimulatorScreen.roadManager = new RoadManager();
+
+        //Set InfoBox
+        DrivingSimulatorScreen.infoBox = new InfoBox();
 
         //Set cop
         DrivingSimulatorScreen.cop = new Cop();
@@ -39,12 +43,20 @@ class DrivingSimulatorScreen extends Screen {
 
         //rendering 
         DrivingSimulatorScreen.runningBackgroundFloor.drawBackground();
+
         DrivingSimulatorScreen.roadManager.drawTiles();
+
         DrivingSimulatorScreen.runningBackgroundTrees.drawBackground();
+
         DrivingSimulatorScreen.speedometer.drawSpeedometer();
+
         // DrivingSimulatorScreen.speedLimit.drawSpeedlimitBox();
+
         DrivingSimulatorScreen.cop.drawCop();
+
         DrivingSimulatorScreen.trafficLight.drawLight();
+
+        DrivingSimulatorScreen.infoBox.drawBox();
 
         image(testCar.drivingSprite, width / 2 + 30, carPos+100, 125, 200);
 
