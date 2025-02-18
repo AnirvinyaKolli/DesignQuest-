@@ -12,7 +12,6 @@ class RoadManager {
         //Max speed
         this.maxSpeed = 21;
 
-
         //Cycling vars 
         this.loc = 0;
         this.i = 1;
@@ -21,8 +20,10 @@ class RoadManager {
         //No clue tbh
         this.currentTiles;
 
+        //Car pos
         carPos = height / 2;
 
+        //Start Stop Functionality
         this.started = 0; 
 
         this.timer; 
@@ -133,9 +134,8 @@ class RoadManager {
         }
 
         if(this.started == 1){
-            this.timer = new Timer(2400);
+            this.timer = new Timer(24000);
         }else if(this.started > 1){
-            console.log(this.timer.timeLeft())
             if(this.timer.isFinished()){
                 this.stop = true; 
                 speed = stopFactor;

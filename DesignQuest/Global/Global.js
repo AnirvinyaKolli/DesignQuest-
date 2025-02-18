@@ -7,7 +7,7 @@ let testCar;
 
 //Game Screens 
 let gameScreens = [HomeScreen, CarSelectorScreen, DrivingSimulatorScreen, PreDrivingScreen];
-let gameState = DrivingSimulatorScreen;
+let gameState = HomeScreen;
 
 let pointLossMessages = [];
 //For Transport section

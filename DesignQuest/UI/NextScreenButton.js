@@ -1,13 +1,15 @@
 class NextScreenButton extends Button {
 
-    constructor(nextScreen = HomeScreen, canGoNext = false, x = width - 255, y = height - 100) {
-        super(x, y, 200, 50);
+    constructor(nextScreen = HomeScreen, canGoNext = false, x = width - 250, y = height - 200) {
+        super(x, y, 200, 200);
 
         //The screen it swaps to when clicked. 
         this.nextScreen = nextScreen;
 
         //Condition to check wether it is ok to proceed. 
         this.canGoNext = canGoNext;
+
+        this.img = loadImage("assets/images/nextArrow.png");
     }
 
     drawButton() {
@@ -16,17 +18,14 @@ class NextScreenButton extends Button {
         if (this.canGoNext) {
 
             //Expansion when hover 
-            fill(255);
-            if (this.detectHover()) {
-                textSize(23);
-                rect(this.x - this.buttonWidth * .125, this.y - this.buttonHeight * .125, this.buttonWidth * 1.25, this.buttonHeight * 1.25);
-            } else {
-                textSize(21);
-                rect(this.x, this.y, this.buttonWidth, this.buttonHeight);
-            }
-            fill(0);
-            text("NextButton", this.x + this.buttonWidth / 2, this.y + this.buttonHeight / 2 - 5)
-            fill(255);
+            push();
+                imageMode(CENTER);
+                if(this.detectHover){
+                    image(this.img, this.x+this.buttonWidth/2, this.y+this.buttonHeight/2, this.buttonWidth, this.buttonHeight);
+                }else{
+                    image(this.img, this.x, this.y, this.buttonWidth, this.buttonHeight);
+                }
+            pop();
             //Goes to next screen when pressed. 
             if (this.detectClick()) {
                 gameState = this.nextScreen;

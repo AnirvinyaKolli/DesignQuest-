@@ -58,7 +58,7 @@ class DrivingSimulatorScreen extends Screen {
 
         DrivingSimulatorScreen.infoBox.drawBox();
 
-        image(testCar.drivingSprite, width / 2 + 30, carPos+100, 125, 200);
+        image(chosenCar.drivingSprite, width / 2 + 30, carPos+100, 125, 200);
 
     }
 
