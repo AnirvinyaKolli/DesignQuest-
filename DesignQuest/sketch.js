@@ -3,12 +3,6 @@ function preload(){
   //Loading global assets
   blockyFont = loadFont("assets/fonts/DotGothic16-Regular.ttf");
 
-  //TEST CAR 
-  testCar = new Car(
-    loadImage("assets/images/carMiniGame/drivingGame/greenCarDrivingSprite.png"),
-    loadImage("assets/images/carMiniGame/carSelector/greenCarDisplaySprite.png"),
-    "Green\nIDEK ANYMORE!!!\nWOOO!" 
-  ); 
 }
 
 function setup() {

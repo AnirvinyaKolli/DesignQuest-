@@ -1,6 +1,6 @@
 class NextScreenButton extends Button {
 
-    constructor(nextScreen = HomeScreen, canGoNext = false, x = width - 250, y = height - 200) {
+    constructor(nextScreen, canGoNext = false, x = width - 250, y = height - 200) {
         super(x, y, 200, 200);
 
         //The screen it swaps to when clicked. 

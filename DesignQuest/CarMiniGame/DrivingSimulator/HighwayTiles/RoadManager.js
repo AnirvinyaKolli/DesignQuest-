@@ -136,6 +136,7 @@ class RoadManager {
         if(this.started == 1){
             this.timer = new Timer(24000);
         }else if(this.started > 1){
+            console.log("GIM)R"+this.timer.timeLeft());
             if(this.timer.isFinished()){
                 this.stop = true; 
                 speed = stopFactor;

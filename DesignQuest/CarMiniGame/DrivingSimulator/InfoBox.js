@@ -42,8 +42,6 @@ class InfoBox{
             this.getNewMessage();
             this.timer.reset();
         }
-        console.log(this.cf);
-        console.log(this.timer.timeLeft());
     }
 
     getNewMessage(){ 
