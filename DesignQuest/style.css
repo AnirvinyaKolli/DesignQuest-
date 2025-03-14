@@ -1,8 +1,64 @@
 html, body {
   margin: 0;
   padding: 0;
+  background-color:cornflowerblue;
 }
 
 canvas {
   display: block;
+}
+.sketchHeading{
+  display: flex;
+  justify-content: center;
+
+}
+
+.Sketch{
+  display: flex;
+  justify-content: center;
+}
+
+.sketchDescription{
+  display: block;
+  width: 600px;
+  margin: 0 auto;
+  text-indent: 30px;
+}
+
+nav {
+  background-color: #333;
+  padding: 10px 20px;      
+  position: sticky;       
+  top: 0;                 
+  width: 100%;
+  z-index: 1000;          
+}
+
+nav ul {
+  list-style-type: none; 
+  margin: 0;
+  padding: 0;
+  display: flex;         
+  justify-content: center
+}
+
+nav ul li {
+  margin-right: 20px;    
+}
+
+nav ul li:last-child {
+  margin-right: 0;       
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: white;         
+  font-size: 18px;       
+  padding: 10px 20px;    
+  display: block;        
+}
+
+nav ul li a:hover {
+  background-color: #000000; 
+  transition: background-color 0.3s ease;
 }

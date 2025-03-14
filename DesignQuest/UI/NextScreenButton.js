@@ -1,5 +1,5 @@
 class NextScreenButton extends Button {
-
+            
     constructor(nextScreen, canGoNext = false, x = width - 250, y = height - 200) {
         super(x, y, 200, 200);
 

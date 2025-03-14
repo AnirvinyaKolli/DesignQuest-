@@ -1,6 +1,8 @@
 class RoadManager {
     constructor() {
 
+        this.stopFactor = 7;
+
         //List of tiles
         this.tiles = [new HighwayTile(), new HighwayTile(), new HighwayTile()];
 
@@ -29,6 +31,9 @@ class RoadManager {
         this.timer; 
 
         this.stop = false; 
+
+        //End card 
+        this.endCard; 
 
     }
     cycleTiles() {
@@ -86,8 +91,11 @@ class RoadManager {
                         pointLossMessages.push(new PointLossMessage("Cross Walk Missed -30", 200, height / 2));
                         DrivingSimulatorScreen.cop.anger += 5;
                     }
+                    break; 
                 case 'EndTile':
-                    stopFactor = 0;
+                    console.log("what in gods name is going about!")
+                    this.drawEndCard = true; 
+                    this.stopFactor = 0;
                     break;
                 default:
                     break;
@@ -128,22 +136,29 @@ class RoadManager {
 
     drawTiles() {
         //Renders all tiles + other code
+        if(this.drawEndCard){
+            this.endCard.drawEndCard();
+        }
+
         this.cycleTiles();
         if(!this.stop){
             this.controlSpeed();
         }
 
         if(this.started == 1){
-            this.timer = new Timer(24000);
+            this.timer = new Timer(240000);
         }else if(this.started > 1){
-            console.log("GIM)R"+this.timer.timeLeft());
+            console.log("Main Timer: "+this.timer.timeLeft());
             if(this.timer.isFinished()){
                 this.stop = true; 
-                speed = stopFactor;
+                this.endCard = new EndCard(width/2, height/2, round(drivingScore), DrivingSimulatorScreen.cop.anger); 
+                speed = this.stopFactor;
             }
         }
         speed -= this.friction;
         speed = constrain(speed, 0, this.maxSpeed);
+
+        
     }
 
     controlSpeed() {

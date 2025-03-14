@@ -14,7 +14,8 @@ function setup() {
 
   //Set game values 
   frameRate(60);
-  createCanvas(1600, 900);
+  let canvas = createCanvas(1300, 900);
+  canvas.parent('drivingCanvas');
 
   //Print canvas sze 
   console.log(width + ":" + height);

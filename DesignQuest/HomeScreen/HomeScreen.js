@@ -1,7 +1,7 @@
 class HomeScreen extends Screen {
 
     //Elements of the screen
-    static title = "SUSTAINABLE SCHOOL";
+    static title = "Safe Driving!";
     static playButton;
 
     static initializeScreen() {
@@ -18,7 +18,8 @@ class HomeScreen extends Screen {
         background(0, 0, 220);
         push();
         textSize(62);
-        fill(0);
+        fill(255);
+        stroke(0);
         text(HomeScreen.title, width / 2, 200);
         pop();
         HomeScreen.playButton.drawButton();
