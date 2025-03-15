@@ -1,18 +1,36 @@
 html, body {
   margin: 0;
   padding: 0;
-  background-color:cornflowerblue;
+  background-color:rgb(255, 255, 255);
 }
 
 canvas {
   display: block;
+}
+
+#Introduction{
+  display: block;
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 20%;
+}
+.heading{
+  text-align: center;
+}
+.mainDescription{
+  text-indent: 30px;
+}
+.displaySection{
+  scroll-margin-top: 80px;
 }
 .sketchHeading{
   display: flex;
   justify-content: center;
 
 }
-
+.displaySection{
+  margin-bottom: 10%;
+}
 .Sketch{
   display: flex;
   justify-content: center;
@@ -20,7 +38,7 @@ canvas {
 
 .sketchDescription{
   display: block;
-  width: 600px;
+  width: 80%;
   margin: 0 auto;
   text-indent: 30px;
 }
@@ -61,4 +79,13 @@ nav ul li a {
 nav ul li a:hover {
   background-color: #000000; 
   transition: background-color 0.3s ease;
+}
+
+.creators-link{
+  text-decoration: underline;
+  color: rgba(255, 255, 255, 0.415);         
+  font-size: 18px;           
+  display: block;  
+  padding: 10px 20px;    
+   
 }
