@@ -3,6 +3,11 @@ html, body {
     padding: 0;
     background-color:rgb(255, 255, 255);
 }
+.credit{
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 22px;
+  }
 
 nav {
     background-color: #333;
